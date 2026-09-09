@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rom-unifier"
+version = "0.1.0"
+description = "Safe, DAT-driven ROM discovery, normalization, staging, verification, and promotion"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+rom-unifier = "rom_unifier.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,59 @@
+[paths]
+# REQUIRED. The program refuses to run until both are configured as absolute paths.
+source = ""
+destination = ""
+
+# Optional. Empty values derive safe locations beside destination.
+processing = ""
+staging = ""
+backups = ""
+tools = ""
+dats = ""
+
+[runtime]
+reader_threads = 2
+writer_threads = 1
+region_order = ["USA", "World", "Europe", "UK"]
+detection_sample_files = 5
+detection_min_confidence = 0.60
+exclude_globs = ["**/*.xz", "**/.____padding_file/**", "**/backups/**"]
+retool_config = ""
+
+[tools.igir]
+# Empty means <paths.tools>/igir.
+path = ""
+url = ""
+sha256 = ""
+archive = "plain"
+
+[tools.chdman]
+path = ""
+url = ""
+sha256 = ""
+archive = "plain"
+
+[tools.retool]
+path = ""
+python = ""
+url = "https://github.com/unexpectedpanda/retool/archive/refs/heads/main.zip"
+sha256 = ""
+archive = "zip"
+subdirectory = "retool-main"
+
+[[dat_sources]]
+name = "libretro-no-intro"
+url = "https://github.com/libretro/libretro-database/archive/refs/heads/master.zip"
+sha256 = ""
+archive = "zip"
+subdirectory = "libretro-database-master/metadat/no-intro"
+destination = "raw/no-intro"
+
+# Add pinned Redump sources for desired disc platforms.
+# [[dat_sources]]
+# name = "redump-psx"
+# platform = "psx"
+# url = "https://..."
+# sha256 = "..."
+# archive = "zip"
+# subdirectory = ""
+# destination = "raw/redump/psx"

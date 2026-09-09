@@ -1,0 +1,210 @@
+[platforms.atari2600]
+title = "Atari 2600"
+media = "cartridge"
+extensions = ["a26", "bin", "zip", "7z"]
+canonical_extension = "a26"
+dat = "Atari - 2600.dat"
+aliases = ["atari2600", "ATARI", "ATARI2600"]
+
+[platforms.atari7800]
+title = "Atari 7800"
+media = "cartridge"
+extensions = ["a78", "bin", "zip", "7z"]
+canonical_extension = "bin"
+remove_headers = [".a78"]
+dat = "Atari - 7800.dat"
+aliases = ["atari7800", "ATARI7800"]
+
+[platforms.lynx]
+title = "Atari Lynx"
+media = "cartridge"
+extensions = ["lnx", "lyx", "zip", "7z"]
+canonical_extension = "lyx"
+remove_headers = [".lnx"]
+dat = "Atari - Lynx.dat"
+aliases = ["atarilynx", "lynx", "LYNX"]
+
+[platforms.n64]
+title = "Nintendo 64"
+media = "cartridge"
+extensions = ["n64", "v64", "z64", "zip", "7z"]
+canonical_extension = "z64"
+normalizer = "n64-byte-order"
+dat = "Nintendo - Nintendo 64.dat"
+aliases = ["n64", "N64", "N64-2"]
+preserve_extensions = ["srm", "eep", "mpk", "st0"]
+
+[platforms.nds]
+title = "Nintendo DS"
+media = "cartridge"
+extensions = ["nds", "zip", "7z"]
+canonical_extension = "nds"
+dat = "Nintendo - Nintendo DS.dat"
+aliases = ["nds", "NDS", "Nintendo DS"]
+
+[platforms.gamegear]
+title = "Sega Game Gear"
+media = "cartridge"
+extensions = ["gg", "zip", "7z"]
+canonical_extension = "gg"
+dat = "Sega - Game Gear.dat"
+aliases = ["gamegear", "GG"]
+
+[platforms.mastersystem]
+title = "Sega Master System"
+media = "cartridge"
+extensions = ["sms", "zip", "7z"]
+canonical_extension = "sms"
+dat = "Sega - Master System - Mark III.dat"
+aliases = ["mastersystem", "MS"]
+
+[platforms.megadrive]
+title = "Sega Mega Drive / Genesis"
+media = "cartridge"
+extensions = ["md", "bin", "zip", "7z"]
+canonical_extension = "md"
+dat = "Sega - Mega Drive - Genesis.dat"
+aliases = ["megadrive", "MD", "genesis"]
+
+[platforms.sega32x]
+title = "Sega 32X"
+media = "cartridge"
+extensions = ["32x", "zip", "7z"]
+canonical_extension = "32x"
+dat = "Sega - 32X.dat"
+aliases = ["sega32x", "32X"]
+
+[platforms.sg1000]
+title = "Sega SG-1000"
+media = "cartridge"
+extensions = ["sg", "zip", "7z"]
+canonical_extension = "sg"
+dat = "Sega - SG-1000.dat"
+aliases = ["sg1000", "sg-1000", "SG-1000"]
+
+[platforms.pcengine]
+title = "PC Engine / TurboGrafx-16"
+media = "cartridge"
+extensions = ["pce", "zip", "7z"]
+canonical_extension = "pce"
+dat = "NEC - PC Engine - TurboGrafx 16.dat"
+aliases = ["pcengine", "PCE"]
+
+[platforms.ngp]
+title = "Neo Geo Pocket"
+media = "cartridge"
+extensions = ["ngp", "zip", "7z"]
+canonical_extension = "ngp"
+dat = "SNK - Neo Geo Pocket.dat"
+aliases = ["ngp", "NGP"]
+
+[platforms.ngpc]
+title = "Neo Geo Pocket Color"
+media = "cartridge"
+extensions = ["ngc", "zip", "7z"]
+canonical_extension = "ngc"
+dat = "SNK - Neo Geo Pocket Color.dat"
+aliases = ["ngpc", "NGPC"]
+
+[platforms.wonderswan]
+title = "WonderSwan"
+media = "cartridge"
+extensions = ["ws", "zip", "7z"]
+canonical_extension = "ws"
+dat = "Bandai - WonderSwan.dat"
+aliases = ["wonderswan", "WS"]
+
+[platforms.wonderswancolor]
+title = "WonderSwan Color"
+media = "cartridge"
+output = "wonderswan"
+extensions = ["wsc", "zip", "7z"]
+canonical_extension = "wsc"
+dat = "Bandai - WonderSwan Color.dat"
+aliases = ["wonderswancolor", "WS"]
+
+[platforms.intellivision]
+title = "Intellivision"
+media = "cartridge"
+extensions = ["int", "bin", "rom", "zip", "7z"]
+canonical_extension = "int"
+dat = "Mattel - Intellivision.dat"
+aliases = ["intellivision"]
+
+[platforms.msx2]
+title = "MSX2"
+media = "cartridge"
+extensions = ["rom", "zip", "7z"]
+canonical_extension = "rom"
+dat = "Microsoft - MSX2.dat"
+aliases = ["msx2", "MSX2"]
+requires = ["core-selection", "machine-database", "bios-audit"]
+
+[platforms.psx]
+title = "PlayStation"
+media = "disc"
+extensions = ["chd", "cue", "bin", "pbp", "m3u"]
+canonical_extension = "chd"
+dat_family = "redump"
+aliases = ["psx", "ps", "ps1", "playstation", "playstation1", "sony playstation"]
+playlist = true
+
+[platforms.psp]
+title = "PlayStation Portable"
+media = "disc"
+extensions = ["chd", "iso", "cso", "pbp"]
+canonical_extension = "chd"
+dat_family = "redump"
+aliases = ["psp", "PSP"]
+
+[platforms.pcenginecd]
+title = "PC Engine CD"
+media = "disc"
+extensions = ["chd", "cue", "bin", "m3u"]
+canonical_extension = "chd"
+dat_family = "redump"
+aliases = ["pcenginecd", "PCECD"]
+playlist = true
+
+[platforms.segacd]
+title = "Sega CD / Mega CD"
+media = "disc"
+extensions = ["chd", "cue", "bin", "m3u"]
+canonical_extension = "chd"
+dat_family = "redump"
+aliases = ["segacd", "SEGACD"]
+playlist = true
+
+[platforms.dreamcast]
+title = "Dreamcast"
+media = "disc"
+extensions = ["chd", "gdi", "cdi", "cue", "bin", "m3u"]
+canonical_extension = "chd"
+dat_family = "redump"
+aliases = ["dreamcast", "DC", "dc"]
+playlist = true
+
+[platforms.saturn]
+title = "Sega Saturn"
+media = "disc"
+extensions = ["chd", "cue", "bin", "m3u"]
+canonical_extension = "chd"
+dat_family = "redump"
+aliases = ["saturn", "SS"]
+playlist = true
+
+[platforms.gameandwatch]
+title = "Game & Watch"
+media = "special"
+extensions = ["mgw"]
+canonical_extension = "mgw"
+aliases = ["gameandwatch"]
+requires = ["core-selection"]
+
+[platforms.pico8]
+title = "PICO-8"
+media = "special"
+extensions = ["p8", "png"]
+canonical_extension = "png"
+aliases = ["pico-8", "pico8"]
+requires = ["cartridge-image-detection"]

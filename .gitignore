@@ -1,0 +1,9 @@
+.venv/
+config.toml
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+processing/
