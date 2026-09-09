@@ -1,8 +1,40 @@
 # ROM Unifier
 
-ROM Unifier discovers incoming ROM collections and safely merges them into one canonical `destination/{platform}` archive. Its normal workflow has only three concepts: inventory, plan, and run.
+ROM Unifier is a safe, declarative orchestration layer around [IGIR](https://igir.io/). IGIR remains the engine that identifies ROMs from DATs, applies parent/clone selection, deduplicates releases, produces canonical filenames, and writes the requested archive format. ROM Unifier does not replace or reimplement those algorithms.
 
-Inputs are not modified while planning or selection occurs. A run stages and independently verifies every result before moving anything, then moves previous destinations and processed source folders into a timestamped, restorable backup.
+The value ROM Unifier adds is everything needed to apply IGIR consistently to a mixed incoming collection without manually constructing a different command for every platform:
+
+- detects platforms using folder aliases, supported file types, archive members, and sampled DAT evidence;
+- chooses platform-specific DAT families, canonical formats, header rules, and output directories from `platforms.toml`;
+- obtains configured standalone tools and prepares Retool parent/clone DATs when required;
+- fingerprints the source and existing archive in a saved, reviewable plan;
+- runs IGIR against isolated staging rather than moving files directly into the final archive;
+- performs a separate IGIR verification pass before promotion;
+- creates and validates M3U playlists for supported multi-disc collections;
+- moves previous output and processed source folders into timestamped, recoverable backups; and
+- records a restore manifest so a completed run can be reversed safely.
+
+For one known platform with a prepared DAT, a carefully constructed IGIR command may be all that is needed. ROM Unifier is intended for the recurring workflow where mixed incoming folders must be detected and merged into `destination/{platform}` with consistent policy, logs, verification, backups, and recovery.
+
+Its normal interface has only four commands: `inventory`, `plan`, `run`, and `restore`. Inputs are not modified during inventory, planning, IGIR selection, or verification. Only after every runnable operation has staged and verified successfully does ROM Unifier back up the affected paths and promote the results.
+
+## What runs under the hood
+
+For a cartridge platform, the internal work is conceptually equivalent to preparing the appropriate DATs and running commands such as:
+
+```bash
+igir copy zip report \
+  --dat PLATFORM-1G1R.dat \
+  --input INCOMING_PLATFORM_FOLDER \
+  --input EXISTING_DESTINATION \
+  --output ISOLATED_STAGING
+
+igir test report \
+  --dat PLATFORM-1G1R.dat \
+  --input ISOLATED_STAGING
+```
+
+ROM Unifier builds these commands from the detected platform and configuration, captures their logs and reports, treats command or logged errors as failures, and handles promotion and recovery only after verification. Disc and special-media workflows are gated separately; unsupported conversion or core-specific requirements remain blocked rather than being passed through generic cartridge processing.
 
 ## Install
 
